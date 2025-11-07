@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Portfolio — Vasudeva Reddy Narapu Reddy</title>
+    <meta name="description" content="Simple portfolio template" />
+    <style>
+        :root{
+            --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#3b82f6; --glass: rgba(255,255,255,0.03);
+            --radius:12px; --maxw:1100px; font-family:Inter,system-ui,Segoe UI,Roboto,"Helvetica Neue",Arial;
+        }
+        *{box-sizing:border-box}
+        html,body{height:100%}
+        body{
+            margin:0; background:linear-gradient(180deg,#071023 0%,#071b2b 100%); color:#e6eef6;
+            -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+            display:flex; justify-content:center; padding:32px 20px;
+        }
+
+        .container{width:100%; max-width:var(--maxw);}
+
+        header{
+            display:flex; align-items:center; justify-content:space-between; gap:16px;
+            margin-bottom:28px;
+        }
+        .brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit;}
+        .logo{
+            width:46px; height:46px; border-radius:10px; background:linear-gradient(135deg,var(--accent),#06b6d4);
+            display:inline-flex; align-items:center; justify-content:center; font-weight:700; color:#041022;
+            box-shadow:0 6px 18px rgba(11,20,32,0.6);
+        }
+        nav{display:flex; gap:14px; align-items:center;}
+        nav a{color:var(--muted); text-decoration:none; padding:8px 10px; border-radius:8px; font-size:15px;}
+        nav a:hover{background:var(--glass); color:var(--accent)}
+
+        /* mobile nav */
+        .menu-btn{display:none; background:transparent; border:1px solid rgba(255,255,255,0.04); padding:8px 10px; border-radius:10px; color:var(--muted)}
+        @media (max-width:720px){
+            nav{display:none}
+            .menu-btn{display:inline-flex}
+        }
+
+        main{display:grid; gap:22px;}
+        .hero{
+            display:flex; gap:24px; align-items:center; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            border-radius:var(--radius); padding:28px; box-shadow:0 6px 24px rgba(2,6,23,0.6);
+            align-items:center;
+        }
+        .hero .left{flex:1}
+        h1{margin:0 0 8px 0; font-size:28px}
+        p.lead{margin:0; color:var(--muted); font-size:15px}
+
+        .hero .cta{margin-top:16px; display:flex; gap:10px}
+        .btn{
+            display:inline-flex; align-items:center; gap:8px; border:0; padding:10px 14px; border-radius:10px;
+            cursor:pointer; font-weight:600;
+        }
+        .btn-primary{background:var(--accent); color:#041022}
+        .btn-ghost{background:transparent; color:var(--muted); border:1px solid rgba(255,255,255,0.04)}
+
+        .avatar{width:130px; height:130px; border-radius:14px; background:linear-gradient(135deg,#0ea5a4,#6366f1); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:32px; color:#041022}
+
+        /* sections */
+        section{background:transparent; border-radius:12px; padding:18px; }
+        .grid{display:grid; gap:18px}
+        .projects{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+        .card{
+            background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+            padding:14px; border-radius:12px; border:1px solid rgba(255,255,255,0.03);
+        }
+        .card h3{margin:0 0 8px 0; font-size:16px}
+        .card p{margin:0; color:var(--muted); font-size:13px}
+
+        .skills{display:flex; gap:10px; flex-wrap:wrap}
+        .chip{background:rgba(255,255,255,0.03); color:var(--muted); padding:8px 10px; border-radius:999px; font-size:13px}
+
+        footer{margin-top:18px; color:var(--muted); font-size:13px; display:flex; justify-content:space-between; align-items:center}
+
+        @media (max-width:980px){
+            .projects{grid-template-columns:repeat(2,1fr)}
+            .hero{flex-direction:column; align-items:flex-start}
+            .avatar{width:96px;height:96px}
+        }
+        @media (max-width:520px){
+            .projects{grid-template-columns:1fr}
+            header{flex-direction:column; align-items:flex-start; gap:12px}
+        }
+
+        /* small utilities */
+        .muted{color:var(--muted)}
+        a.link{color:var(--accent); text-decoration:none}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <a class="brand" href="#">
+                <div class="logo">YN</div>
+                <div>
+                    <div style="font-weight:700">Your Name</div>
+                    <div class="muted" style="font-size:12px">Title • Location</div>
+                </div>
+            </a>
+
+            <nav aria-label="Main navigation">
+                <a href="#about">About</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+            </nav>
+
+            <button class="menu-btn" id="menuBtn" aria-expanded="false">Menu</button>
+        </header>
+
+        <main>
+            <section class="hero" id="home" aria-labelledby="homeTitle">
+                <div class="left">
+                    <h1 id="homeTitle">Hi, I'm Your Name — Developer & Designer</h1>
+                    <p class="lead">I build fast, accessible web experiences and clean user interfaces. I enjoy taking ideas from concept to production.</p>
+                    <div class="cta">
+                        <a class="btn btn-primary" href="#projects">See projects</a>
+                        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+                    </div>
+                </div>
+                <div class="avatar" aria-hidden="true">YN</div>
+            </section>
+
+            <section id="about" aria-labelledby="aboutTitle" class="grid">
+                <div class="card">
+                    <h3 id="aboutTitle">About</h3>
+                    <p class="muted">Short bio: A few sentences about your background, focus areas, and what you're looking for. Mention frameworks, domain expertise, or industry experience.</p>
+                </div>
+
+                <div class="card">
+                    <h3>Experience</h3>
+                    <p class="muted">Company A — Role (Year–Year)<br>Company B — Role (Year–Present)</p>
+                </div>
+            </section>
+
+            <section id="projects" aria-labelledby="projectsTitle">
+                <h2 id="projectsTitle" style="margin:0 0 12px 0">Projects</h2>
+                <div class="projects">
+                    <article class="card">
+                        <h3>Project One</h3>
+                        <p class="muted">Short description. Tech used: HTML, CSS, JS.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Project Two</h3>
+                        <p class="muted">Short description. Tech used: React, Node.</p>
+                    </article>
+                    <article class="card">
+                        <h3>Project Three</h3>
+                        <p class="muted">Short description. Tech used: Python, Flask.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section id="skills">
+                <h2 style="margin:0 0 12px 0">Skills</h2>
+                <div class="card">
+                    <div class="skills">
+                        <span class="chip">HTML</span>
+                        <span class="chip">CSS</span>
+                        <span class="chip">JavaScript</span>
+                        <span class="chip">React</span>
+                        <span class="chip">Node.js</span>
+                        <span class="chip">Python</span>
+                        <span class="chip">DevOps</span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="contact">
+                <h2 style="margin:0 0 12px 0">Contact</h2>
+                <div class="card">
+                    <form action="#" method="post" onsubmit="alert('Replace with your form backend'); return false;">
+                        <label class="muted" style="font-size:13px; display:block; margin-bottom:8px">
+                            Email
+                            <input type="email" name="email" placeholder="you@example.com" required style="display:block; width:100%; margin-top:8px; padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background:transparent; color:inherit" />
+                        </label>
+
+                        <label class="muted" style="font-size:13px; display:block; margin:12px 0 8px 0">
+                            Message
+                            <textarea name="message" rows="4" required style="display:block; width:100%; margin-top:8px; padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background:transparent; color:inherit"></textarea>
+                        </label>
+
+                        <div style="margin-top:12px">
+                            <button class="btn btn-primary" type="submit">Send message</button>
+                            <a class="btn btn-ghost" href="mailto:you@example.com">Email</a>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <footer>
+                <div class="muted">© <span id="year"></span> Your Name</div>
+                <div class="muted">Built with plain HTML & CSS</div>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        // small helpers: mobile menu and year fill
+        const menuBtn = document.getElementById('menuBtn');
+        const nav = document.querySelector('nav');
+        menuBtn && menuBtn.addEventListener('click', () => {
+            const isOpen = nav.style.display === 'flex';
+            nav.style.display = isOpen ? '' : 'flex';
+            menuBtn.setAttribute('aria-expanded', String(!isOpen));
+        });
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // smooth scroll for in-page links
+        document.querySelectorAll('a[href^="#"]').forEach(a=>{
+            a.addEventListener('click', e=>{
+                const target = document.querySelector(a.getAttribute('href'));
+                if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
+            });
+        });
+    </script>
+</body>
+</html></div></article></div>
