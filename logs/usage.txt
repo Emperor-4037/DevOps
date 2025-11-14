@@ -1,0 +1,4 @@
+4.0K	./pending
+12K	./completed
+12K	./logs
+36K	.
